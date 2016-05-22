@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Registrar Promotor {% endblock %}
+{% block context %}
+<h1>Registrar Promotor</h1>
+<hr>
+<p>Modulo de registro</p>
+<a href="#about" class="btn btn-primary btn-xl page-scroll wow tada">Registrate</a>
+{% endblock %}
+{% block content %}
+<aside id = "about" class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>Conpleta el formulario</h2>
+        </div>
+        <div class="container">
+          <div class="col-sm-offset-3 col-sm-6">
+            <form class="" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <div class="input-group" data-validate="email">
+                  <input type="text" class="form-control" name="email" id="id_email" placeholder="Email" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="username" id="id_username" placeholder="Nombre de Usuario" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="first_name" id="id_first_name" placeholder="Nombre" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Apellido" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group" data-validate = "password">
+                  <input type="password" class="form-control" name="password1" id="id_password1" placeholder="Contraseña" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group" data-validate = "passwordv">
+                  <input type="password" class="form-control" name="password2" id="id_password2" placeholder="Confirmar Contraseña" required>
+                  <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                </div>
+              </div>
+              <button style ="margin-right: 15px"type = "submit" href="#" class="btn btn-default btn-xl wow tada">Registro</button>
+              <button style ="margin-left: 15px"type = "reset" href="#" class="btn btn-default btn-xl wow tada">Cancel</button>
+            </form>
+        </div>
+          </div>
+        </div>
+</aside>
+{% endblock %}

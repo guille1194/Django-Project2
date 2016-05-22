@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Error {% endblock %}
+{% block context %}
+<h1>Error</h1>
+<hr>
+<p>Errorr</p>
+{% endblock %}
+{% block content %}
+<div style="text-align: center;"><h2 >Ya no se pueden agregar mas promovidos!</h2><br>
+  <a href="{% url 'logout' %}" class="btn btn-default">Logout</a>
+</div>
+{%endblock%}

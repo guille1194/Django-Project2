@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Votaron{% endblock %}
+{% block context %}
+<h1>Reporte de Votos</h1>
+<hr>
+<p>Reposte de personas que votaron</p>
+<a href="#about" class="btn btn-primary btn-xl page-scroll wow tada">Ver</a>
+{% endblock %}
+{% block content %}
+        <div class="container">
+            <div class="row">
+              <h2 class="section-heading text-center">Reportes de personas que si Votaron</h2>
+              <hr class="light">
+              <div class="col-lg-8 col-lg-offset-2 table-responsive">
+                <table class= "table table-bordered table-hover">
+                  <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Voto</th>
+                  </tr>
+                  {% for item in object_list %}
+                  {% if item.voto == True %}
+                  <tr>
+                    <td>{{ item.promovido_id }}</td>
+                    <td>{{ item.promovido_nombre }}</td>
+                    <td> Si </td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-lg-offset-5 ">
+          <a style="margin-right: 15px" href="{% url 'csv_Si_Votaron' %}" class="page-scroll btn btn-default btn-xl wow tada">Guardar</a>
+        </div>
+</section>
+{% endblock %}

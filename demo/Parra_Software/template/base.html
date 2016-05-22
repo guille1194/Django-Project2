@@ -1,0 +1,165 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Parra's Software - {% block title%} {% endblock %}</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/freelancer.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+
+    <!-- Portfolio Modals -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+</head>
+
+<body id="page-top" class="index">
+
+  <nav class="navbar navbar-default navbar-fixed-top" style= "background-color: #C0C0C0">
+        <div class="container" style= "background-color: #C0C0C0">
+      <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll" style= "background-color: #C0C0C0">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{%url 'home'%}">Parra's Software</a>
+</div>
+
+
+              <!-- Sidebar -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                      {% if user.is_authenticated %}
+                      <li class="page-scroll"><a href="{% url 'home' %}" class="navbar-link" style="padding-left:0px;text-indent: 10px;"><span class="glyphicon glyphicon-user" style="font-size: 14px;vertical-align:center;top: 0px;"></span>&nbsp;&nbsp;{{request.user.first_name|capfirst}} {{request.user.last_name|capfirst}}</a></li>
+                    {% endif %}
+                      {% if perms.home.puede_ser_promotor %}
+                          {% if not user.is_superuser %}
+
+                          {% endif %}
+                          {% endif %}
+                      </li>
+                      {% if user.is_authenticated %}
+                      <li class="page-scroll"><a href="{% url 'logout' %}">Salir</a></li>
+                      {% else %}
+                      <li class="page-scroll"><a href="{% url 'login' %}">Iniciar Sesion</a></li>
+                      {% endif %}
+                  </ul>
+              </div>
+            </div>
+          </nav>
+              <!-- /#sidebar-wrapper -->
+
+              <!-- Page Content -->
+                  <br><br><br><br>
+              <div id="page-content-wrapper" style="padding-top: 65px;">
+
+              {% block page_title %}{% endblock %}
+
+              <section>
+                  {% block content%} {% endblock %}
+              </section>
+
+              </div>
+              <!-- /#page-content-wrapper -->
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Ubicacion</h3>
+                        <p>Las Palmas #5049 Fracc. Las Palmas.<br>Tijuana, B.C. México</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Nuestras Redes Sociales</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Telefonos</h3>
+                        <p>608-4521<br>664-166-5449<br>664-1664742</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Parra's Software
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+    <script src="{% static 'custom.js' %}"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/freelancer.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Reportes{% endblock %}
+{% block context %}
+<h1>Reportes Estadisticos</h1>
+<hr>
+<p>Tipos de reporte disponible con fin de general estadisticas</p>
+<a href="#about" class="btn btn-primary btn-xl page-scroll wow tada">Ver</a>
+{% endblock %}
+{% block content %}
+<section id = "about" class="bg-dark">
+  <div class="container">
+      <div class="row">
+          <div class=" col-sm-offset-3 col-lg-3 col-md-6 text-center">
+              <div class="service-box">
+                  <a class= "asdf" href="{% url 'reporte_si' %}"> <i class="fa fa-5x fa-check-square-o wow bounceIn text-primary"></i></a>
+                  <a class= "asdf" href="{% url 'reporte_si' %}">  <h3>Votadores</h3> </a>
+                  <p class="text-muted">Reporte de promovidos que ya votaron</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="service-box">
+                  <a href="{% url 'reporte_no' %}"> <i class="fa fa-5x fa-times wow bounceIn text-primary" data-wow-delay=".1s"></i></a>
+                  <a href="{% url 'reporte_no' %}">  <h3>Pendientes</h3> </a>
+                  <p class="text-muted">Reporte de promovidos que no han votado</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

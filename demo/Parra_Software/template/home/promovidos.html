@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Promovidos Reporte{% endblock %}
+{% block context %}
+<h1>Reporte de Promovidos</h1>
+<hr>
+<p>Acontinuacion se muesta un reporte de promovidos</p>
+<a href="#about" class="btn btn-primary btn-xl page-scroll wow tada">Ver</a>
+{% endblock %}
+{% block content %}
+        <div class="container">
+            <div class="row">
+              <h2 class="section-heading text-center">Reportes de Promovidos</h2>
+              <hr class="light">
+              <div class="col-lg-8 col-lg-offset-2 table-responsive">
+                <table class= "table table-bordered table-hover">
+                  <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Promotor</th>
+                  </tr>
+                  {% for item in object_list %}
+                  <tr>
+                    <td>{{ item.promovido_id }}</td>
+                    <td>{{ item.promovido_nombre }}</td>
+                    <td>{{item.promotor}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+        </div>
+</section>
+{% endblock %}
